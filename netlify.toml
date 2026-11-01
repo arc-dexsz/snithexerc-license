@@ -1,0 +1,6 @@
+[build.environment]
+  # ADMIN_USER is a short, common username that also appears verbatim inside
+  # third-party library code (Next.js, Babel, source-map, Deno std), which makes
+  # secrets scanning report false positives. ADMIN_PASS and TURSO_AUTH_TOKEN
+  # are still scanned.
+  SECRETS_SCAN_OMIT_KEYS = "ADMIN_USER"
