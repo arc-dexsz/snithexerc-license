@@ -20,7 +20,6 @@ interface KeyRow extends Row {
   uses: number;
   max_devices: number;
   game: string;
-  devices_count?: number;
 }
 
 export async function GET(request: Request) {
@@ -137,7 +136,6 @@ async function handleConnect(request: Request) {
       args: [device, Number(keyRow.id)],
     });
     keyRow.device_id = device;
-    keyRow.devices_count = 1;
   } else if (device && keyRow.device_id && keyRow.device_id !== device) {
     // Device mismatch
     const maxDevices = Number(keyRow.max_devices) || 1;
